@@ -63,7 +63,7 @@ func run() error {
 		}
 
 		doc.Find("table").Each(func(i int, node *goquery.Selection) {
-			if val, exists := node.Attr("summary"); !exists || val != "Popularity for top 1000" {
+			if val, exists := node.Attr("summary"); !exists || val != fmt.Sprintf("Popularity for top %d", *topPtr) {
 				return
 			}
 
